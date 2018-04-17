@@ -90,7 +90,7 @@ public class NoteAddActivity extends AppCompatActivity
             // continue if file was successfully created
             if (photoFile != null) {
                 Uri photoUri = FileProvider.getUriForFile(this,
-                        "com.example.android.fileprovider",
+                        "com.ahmedmatem.android.fileprovider",
                         photoFile);
                 takePictureIntent.putExtra(MediaStore.EXTRA_OUTPUT, photoUri);
                 startActivityForResult(takePictureIntent, REQUEST_IMAGE_CAPTURE);
