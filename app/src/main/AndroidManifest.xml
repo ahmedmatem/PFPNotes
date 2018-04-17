@@ -2,19 +2,145 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
           package="com.ahmedmatem.android.pfpnotes">
 
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+
+    <uses-feature
+        android:name="android.hardware.camera"
+        android:required="true"/>
+
+    <uses-permission
+        android:name="android.permission.WRITE_EXTERNAL_STORAGE"
+        android:maxSdkVersion="18"/>
+
     <application
         android:allowBackup="true"
-        android:icon="@mipmap/ic_launcher"
+        android:icon="@mipmap/ic_launcher_logo"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".NoteListActivity">
+        <activity android:name=".SignInActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
 
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
+        </activity>
+        <activity
+            android:name=".NoteListActivity"
+            android:configChanges="orientation"
+            android:label="@string/notes"
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar">
+        </activity>
+        <activity
+            android:name=".NoteAddActivity"
+            android:configChanges="orientation"
+            android:label="@string/add_node"
+            android:launchMode="singleTop"
+            android:parentActivityName=".NoteListActivity"
+            android:screenOrientation="portrait">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".NoteListActivity"/>
+        </activity>
+
+        <!-- register content provider -->
+        <provider
+            android:name=".data.DataProvider"
+            android:authorities="com.ahmedmatem.android.pfpnotes"
+            android:exported="false"/>
+
+        <!-- register file provider -->
+        <provider
+            android:name="android.support.v4.content.FileProvider"
+            android:authorities="com.ahmedmatem.android.fileprovider"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/file_paths"/>
+        </provider>
+
+        <activity
+            android:name=".PriceListActivity"
+            android:label="@string/price_list"
+            android:parentActivityName=".NoteListActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".NoteListActivity"/>
+        </activity>
+        <activity
+            android:name=".PlaceListActivity"
+            android:label="@string/place_list"
+            android:parentActivityName=".NoteListActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".NoteListActivity"/>
+        </activity>
+        <activity
+            android:name=".DimensionActivity"
+            android:configChanges="orientation"
+            android:label="@string/dimension_uppercase"
+            android:parentActivityName=".NoteAddActivity"
+            android:screenOrientation="portrait">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".NoteAddActivity"/>
+        </activity>
+        <activity
+            android:name=".NoteEditActivity"
+            android:configChanges="orientation"
+            android:label="@string/title_activity_note_edit"
+            android:launchMode="singleTop"
+            android:parentActivityName=".NoteListActivity"
+            android:screenOrientation="portrait">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".NoteListActivity"/>
+        </activity>
+        <activity
+            android:name=".UploadActivity"
+            android:configChanges="orientation"
+            android:label="Upload"
+            android:parentActivityName=".NoteListActivity"
+            android:screenOrientation="portrait">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".NoteListActivity"/>
+        </activity>
+        <activity
+            android:name=".DetailActivity"
+            android:label="@string/title_activity_detail"
+            android:parentActivityName=".NoteListActivity"
+            android:theme="@style/AppTheme">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.ahmedmatem.android.pfpnotes.NoteListActivity"/>
+        </activity>
+
+        <receiver android:name=".PFPAppWidget">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE"/>
+                <action android:name="com.ahmedmatem.android.pfpnotes.ALARM_UPDATE"/>
+            </intent-filter>
+
+            <meta-data
+                android:name="android.appwidget.provider"
+                android:resource="@xml/pfpapp_widget_info"/>
+        </receiver>
+        <receiver android:name=".services.AlarmReceiver"/>
+
+        <activity
+            android:name=".ImagePagerFullscreenActivity"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:parentActivityName=".DetailActivity"
+            android:theme="@style/FullscreenTheme">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.ahmedmatem.android.pfpnotes.DetailActivity"/>
         </activity>
     </application>
 
