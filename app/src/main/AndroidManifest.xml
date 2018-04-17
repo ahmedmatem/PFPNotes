@@ -39,7 +39,6 @@
             android:name=".NoteAddActivity"
             android:configChanges="orientation"
             android:label="@string/add_node"
-            android:launchMode="singleTop"
             android:parentActivityName=".NoteListActivity"
             android:screenOrientation="portrait">
             <meta-data
@@ -94,7 +93,6 @@
             android:name=".NoteEditActivity"
             android:configChanges="orientation"
             android:label="@string/title_activity_note_edit"
-            android:launchMode="singleTop"
             android:parentActivityName=".NoteListActivity"
             android:screenOrientation="portrait">
             <meta-data

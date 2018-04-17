@@ -84,6 +84,11 @@ public class NoteListActivity extends AppCompatActivity
         return true;
     }
 
+    @Override
+    public void onBackPressed() {
+        return;
+    }
+
     private void updateMenu() {
         boolean isSignedIn = new Preferences(this).isSignedIn();
         mSignInMenuItem.setVisible(!isSignedIn);

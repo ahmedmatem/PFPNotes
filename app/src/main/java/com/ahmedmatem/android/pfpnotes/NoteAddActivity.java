@@ -110,6 +110,7 @@ public class NoteAddActivity extends AppCompatActivity
     @Override
     public void onDataSaved() {
         Intent intent = new Intent(this, NoteListActivity.class);
+        finish();
         startActivity(intent);
     }
 
