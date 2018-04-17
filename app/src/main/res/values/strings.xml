@@ -2,7 +2,7 @@
     <string name="app_name">PFP Notes</string>
 
     <!--SignIn layout-->
-    <string name="email">Username</string>
+    <string name="email">e-mail</string>
     <string name="password">Password</string>
     <string name="sign_in_remember">Stay signed in.</string>
     <string name="sign_in">Sign in</string>
