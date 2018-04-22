@@ -6,7 +6,7 @@ import android.os.Parcelable;
 import com.google.firebase.database.IgnoreExtraProperties;
 
 @IgnoreExtraProperties
-public class Drawing implements Parcelable {
+public class Drawing {
     private String id;
     private String path;
 
@@ -18,23 +18,6 @@ public class Drawing implements Parcelable {
         this.id = id;
         this.path = path;
     }
-
-    protected Drawing(Parcel in) {
-        id = in.readString();
-        path = in.readString();
-    }
-
-    public static final Creator<Drawing> CREATOR = new Creator<Drawing>() {
-        @Override
-        public Drawing createFromParcel(Parcel in) {
-            return new Drawing(in);
-        }
-
-        @Override
-        public Drawing[] newArray(int size) {
-            return new Drawing[size];
-        }
-    };
 
     public String getPath() {
         return path;
@@ -50,16 +33,5 @@ public class Drawing implements Parcelable {
 
     public void setId(String id) {
         this.id = id;
-    }
-
-    @Override
-    public int describeContents() {
-        return 0;
-    }
-
-    @Override
-    public void writeToParcel(Parcel dest, int flags) {
-        dest.writeString(id);
-        dest.writeString(path);
     }
 }
