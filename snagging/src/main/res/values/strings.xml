@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">snagging</string>
+    <string name="action_settings">Settings</string>
+
+    // Titles
+    <string name="title_activity_drawings_list">Drawings</string>
+</resources>

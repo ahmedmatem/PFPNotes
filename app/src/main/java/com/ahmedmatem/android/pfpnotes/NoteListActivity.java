@@ -21,6 +21,7 @@ import com.ahmedmatem.android.pfpnotes.models.Image;
 import com.ahmedmatem.android.pfpnotes.models.Item;
 import com.ahmedmatem.android.pfpnotes.models.Note;
 import com.ahmedmatem.android.pfpnotes.models.NoteItem;
+import com.ahmedmatem.android.snagging.Snagging;
 import com.google.firebase.auth.FirebaseAuth;
 
 import java.util.ArrayList;
@@ -118,6 +119,9 @@ public class NoteListActivity extends AppCompatActivity
             case R.id.action_upload:
                 intent = new Intent(this, UploadActivity.class);
                 startActivity(intent);
+                return true;
+            case R.id.action_drawings:
+                Snagging.start(this);
                 return true;
         }
         return super.onOptionsItemSelected(item);

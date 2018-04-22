@@ -1,0 +1,9 @@
+<resources>
+    <dimen name="fab_margin">16dp</dimen>
+
+    // Content properties
+    <dimen name="content_padding">16dp</dimen>
+
+    // Grid properties
+    <dimen name="default_grid_spacing">2dp</dimen>
+</resources>

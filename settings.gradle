@@ -1,1 +1,1 @@
-include ':app', ':inputlibrary'
+include ':app', ':inputlibrary', ':snagging'

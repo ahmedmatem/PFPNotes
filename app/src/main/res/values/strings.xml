@@ -19,6 +19,7 @@
 
     <!--menu actions-->
     <string name="menu_action_upload">Upload</string>
+    <string name="menu_action_drawings">Drawings</string>
     <string name="menu_action_update">Update</string>
     <string name="menu_action_price_list">Price list</string>
     <string name="menu_action_place_list">Place list</string>
